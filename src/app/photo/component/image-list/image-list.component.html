@@ -1,0 +1,33 @@
+
+@if(photoRessources.isLoading()){
+  <app-loading-spinner
+    [strokeWidth]="strokeWidth"
+    [animationDuration]="animationDuration">
+  </app-loading-spinner>
+
+} @else if(photoRessources.hasValue()) {
+  <!--langues selector-->
+  <div class=" options ">
+      <p-select [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="name"
+      placeholder="langue" class="w-full md:w-56 ml-3" />
+    <!-- search field -->
+    <p-iconfield>
+        <p-inputicon styleClass="pi pi-search" />
+        <input type="text" pInputText placeholder="Search" />
+    </p-iconfield>
+     <!-- end search field -->
+  <div class="flex-auto">
+    <label for="integeronly">Page number</label>
+    <p-inputnumber inputId="integeronly" min="1" mode="decimal" max=30 [(ngModel)]="pageNumber" />
+  </div>
+  </div>
+
+<div class="is-center card-centered">
+  @for (photo of photoRessources.value() ; track photo.id) {
+    <app-image [photo]="photo" [langue]="selectedLanguage?.code??'fr'"></app-image>
+  }
+
+</div>
+
+
+}

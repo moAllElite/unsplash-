@@ -1,0 +1,9 @@
+
+
+  <a (click)="navigatePhotoDetails(photo()!.id)" >
+      <p-image [src]="photo().urls.regular"
+       [title]=" langue()=='en'? photo().alternative_slugs.en:photo().alternative_slugs.fr"
+        width="250">
+  </p-image>
+  </a>
+

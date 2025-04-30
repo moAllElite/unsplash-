@@ -1,0 +1,19 @@
+@if (photoResource.hasValue()) {
+  <p-image [src]="photoResource.value()!.urls.regular" [preview]="true" width="550">
+<ng-template #indicator>
+      <i class="pi pi-search"></i>
+  </ng-template>
+  <ng-template #image>
+      <img [src]="photoResource.value().urls.small" alt="image" width="550" />
+
+  </ng-template>
+  <ng-template #preview let-style="style" let-previewCallback="previewCallback">
+    <span>{{ photoResource.value().user.name }}</span>
+      <img [src]="photoResource.value().urls.regular" alt="image" [style]="style" (click)="previewCallback()" />
+  </ng-template>
+</p-image>
+}@else{
+  <app-loading-spinner [strokeWidth]="strokeWidth"
+    [animationDuration]="animationDuration">
+  </app-loading-spinner>
+}
