@@ -2,7 +2,7 @@
   "name": "unsplash",
   "version": "1.0.0",
   "scripts": {
-    "ng": "ng", 
+    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -19,6 +19,7 @@
     "@angular/router": "^19.2.0",
     "@ngrx/store": "^19.1.0",
     "@primeng/themes": "^19.1.0",
+    "@vercel/analytics": "^1.5.0",
     "dotenv": "^16.5.0",
     "primeicons": "^7.0.0",
     "primeng": "^19.1.0",

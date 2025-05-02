@@ -1,7 +1,6 @@
 .options{
-  gap: 42rem;
   padding: 15px;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
 }
 .is-center {
@@ -26,4 +25,7 @@ img {
 }
 .ml-3{
   margin-left: 30px;
+}
+.mr-3{
+  margin-right: 30px;
 }

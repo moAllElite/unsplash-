@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ImageListComponent } from "./photo/component/image-list/image-list.component";
 
+import { inject } from "@vercel/analytics";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ImageListComponent],
+  imports: [RouterOutlet], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

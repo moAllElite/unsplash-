@@ -10,15 +10,10 @@
   <div class=" options ">
       <p-select [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="name"
       placeholder="langue" class="w-full md:w-56 ml-3" />
-    <!-- search field -->
-    <p-iconfield>
-        <p-inputicon styleClass="pi pi-search" />
-        <input type="text" pInputText placeholder="Search" />
-    </p-iconfield>
-     <!-- end search field -->
-  <div class="flex-auto">
-    <label for="integeronly">Page number</label>
-    <p-inputnumber inputId="integeronly" min="1" mode="decimal" max=30 [(ngModel)]="pageNumber" />
+
+  <div class="flex-auto mr-3">
+    <label for="integeronly ">Page number</label>
+    <p-inputnumber class="" inputId="integeronly" min="1" mode="decimal" max=30 [(ngModel)]="pageNumber" />
   </div>
   </div>
 
