@@ -4,7 +4,22 @@
           <path d="..." fill="var(--primary-color)" />
       </svg>
   </ng-template>
- 
+  <ng-template #item let-item let-root="root">
+      <a pRipple class="flex items-center p-menubar-item-link"(click)="navigateTo(item)"
+          [ngClass]="{ 'p-menubar-root-list-item': root, 'p-menubar-sublist-item': !root }"
+          [ngStyle]="{ 'padding-left': item.items ? '1.5rem' : '0.5rem' }">
+
+          <i *ngIf="item.items" [ngClass]="['pi', item.icon]"></i>
+          <i *ngIf="!item.items && item.icon" [ngClass]="['pi', item.icon]"></i>
+
+          <span>{{ item.label }}</span>
+          <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" [value]="item.badge" />
+          <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+          <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+      </a>
+
+  </ng-template>
+
   <ng-template #end>
       <div class="flex items-center gap-2">
           <input type="text" pInputText placeholder="Search" class="w-36" />
@@ -12,3 +27,10 @@
       </div>
   </ng-template>
 </p-menubar>
+<!--@if (photoResource.isLoading()) {
+  <app-loading-spinner
+  [animationDuration]="'0.8s'"
+  [strokeWidth]="''"
+  ></app-loading-spinner>
+}
+-->

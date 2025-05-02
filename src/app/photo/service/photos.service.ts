@@ -19,8 +19,17 @@ export class PhotosService {
     );
   }
 
+
+  //fetch photos by id
   getPhotoById(id:string,client_id:string):Observable<Photo> {
     return this.http.get<Photo>(`https://api.unsplash.com/photos/${id}?client_id=${client_id}`);
   }
+
+  //fetch photos by random
+  getRandomPhoto(client_id:string):Observable<Photo> {
+    return this.http.get<Photo>(`https://api.unsplash.com/photos/random?client_id=${client_id}`);
+  }
+
+
 
 }

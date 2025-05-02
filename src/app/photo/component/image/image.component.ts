@@ -17,7 +17,6 @@ export class ImageComponent {
 
   //go to photo view
   navigatePhotoDetails(photoId:  string) {
-    alert(photoId)
     this.router.navigateByUrl(`/photos/${photoId}`)
   }
 }

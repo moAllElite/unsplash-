@@ -1,25 +1,41 @@
 @if (photoResource.hasValue()) {
   <div class="flex">
-    <p-image [src]="photoResource.value().urls.small" [preview]="true" width="450">
+    <p-image [src]="photoResource.value().urls.small" [preview]="true" heigth="140" class="p-2">
       <ng-template #indicator>
             <i class="pi pi-search"></i>
         </ng-template>
         <ng-template #image>
-            <img [src]="photoResource.value().urls.small" alt="image" width="550" />
+            <img [src]="photoResource.value().urls.small" alt="image" heigth="140"/>
 
         </ng-template>
         <ng-template #preview let-style="style" let-previewCallback="previewCallback">
-          <span>{{ photoResource.value().user.name }}</span>
-            <img [src]="photoResource.value().urls.regular" alt="image" [style]="style" (click)="previewCallback()" />
+            <img [src]="photoResource.value().urls.small" alt="image"
+            [style]="style" (click)="previewCallback()"  heigth="140" />
         </ng-template>
       </p-image>
       <div>
-       <p> {{ photoResource.value().user.first_name.toUpperCase() }} </p>
+       <h1> {{ photoResource.value().user.first_name.toUpperCase() }}
+          {{ photoResource.value().user.last_name.toUpperCase() }}
+      </h1>
+      <p>Date de création: {{ photoResource.value().created_at | date:'dd-MM-yyyy' }}</p>
+
+
+        <p-overlaybadge  value="{{photoResource.value().likes }}">
+            <i class="pi pi-heart-fill" style="font-size: 2rem"></i>
+        </p-overlaybadge>
+       <div class="">
+        {{ photoResource.value().user.bio}}
+       </div>
+
+       <p-button label="Emails" icon="pi pi-at" label="Portfolio" badge="2" (onClick)="navigateToPortfolio(photoResource.value())"/>
+
       </div>
   </div>
 
-}@else{
+}@else if(photoResource.isLoading()) {
   <app-loading-spinner [strokeWidth]="strokeWidth"
     [animationDuration]="animationDuration">
   </app-loading-spinner>
+}@else {
+  <p>Error  veuillez réessayer plus tard! </p>
 }
