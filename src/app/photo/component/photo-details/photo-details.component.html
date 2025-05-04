@@ -1,33 +1,40 @@
 @if (photoResource.hasValue()) {
   <div class="flex">
-    <p-image [src]="photoResource.value().urls.small" [preview]="true" heigth="140" class="p-2">
+    <p-image [src]="photoResource.value()!.urls.small" [preview]="true" heigth="140" class="p-2">
       <ng-template #indicator>
             <i class="pi pi-search"></i>
         </ng-template>
         <ng-template #image>
-            <img [src]="photoResource.value().urls.small" alt="image" heigth="140"/>
+            <img [src]="photoResource.value()!.urls.small" alt="image" heigth="140"/>
 
         </ng-template>
         <ng-template #preview let-style="style" let-previewCallback="previewCallback">
-            <img [src]="photoResource.value().urls.small" alt="image"
+            <img [src]="photoResource.value()!.urls.small" alt="image"
             [style]="style" (click)="previewCallback()"  heigth="140" />
         </ng-template>
       </p-image>
       <div>
-       <h1> {{ photoResource.value().user.first_name.toUpperCase() }}
-          {{ photoResource.value().user.last_name.toUpperCase() }}
+       <h1> {{ photoResource.value()!.user.first_name }}
+          {{ photoResource.value()!.user.last_name}}
       </h1>
-      <p>Date de création: {{ photoResource.value().created_at | date:'dd-MM-yyyy' }}</p>
+      <p>Date de création: {{ photoResource.value()!.created_at | date:'dd-MM-yyyy' }}</p>
 
 
-        <p-overlaybadge  value="{{photoResource.value().likes }}">
+        <p-overlaybadge  value="{{photoResource.value()!.likes }}">
             <i class="pi pi-heart-fill" style="font-size: 2rem"></i>
         </p-overlaybadge>
        <div class="">
-        {{ photoResource.value().user.bio}}
+        {{ photoResource.value()!.user.bio}}
        </div>
 
-       <p-button label="Emails" icon="pi pi-at" label="Portfolio" badge="2" (onClick)="navigateToPortfolio(photoResource.value())"/>
+        <div class="mt-2">
+
+          <p-button icon="pi pi-at" label="Portfolio" badge="2"
+                    (onClick)="navigateToPortfolio(photoResource.value()!)"/>
+          <p-button icon="pi pi-link"  label="Statistiques" class="mr-3 ml-3"
+                    (onClick)="navigateToDashboard(photoResource.value()!)" />
+        </div>
+
 
       </div>
   </div>

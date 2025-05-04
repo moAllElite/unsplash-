@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 
 export const route:Routes = [
- 
+
   {
     path:'',
     children:[
