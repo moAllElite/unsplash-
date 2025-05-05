@@ -1,21 +1,27 @@
 @if (statsResources.value()) {
-    <div style="display: flex;">
-      <div class="mb-4 p-8 card has-text-centered">
-        <p-card header="Total de téléchargements" class="is-pink">
-            <h2 class="m-0">
+  <div class="container">
+  <div class="mb-4 p-8 card has-text-centered" >
+        <p-card header="Total de téléchargements" [style]="{backgroundColor:'#4A90E2',color:'#F0F0F0' }">
+            <h1 class="m-0">
               {{ statsResources.value()?.downloads?.total }}
-            </h2>
+            </h1>
+            <ng-template #footer>
+              <i class="pi pi-download" style="color: #F0F0F0;font-size:1.2rem;"></i>
+            </ng-template>
         </p-card>
-
-        <div class=" mb-4 p-8 card has-text-centered ">
-          <p-card header="Total de vues" class="is-blue">
-              <h2 class="m-0">
+        </div>
+        <div class=" mb-4 p-8 card has-text-centered " >
+          <p-card header="Total de vues" [style]="{backgroundColor:'#F5A623',color:'#F0F0F0' }" >
+              <h1 class="m-0">
                 {{ statsResources.value()?.views?.total }}
-              </h2>
+              </h1>
+              <ng-template #footer>
+                <i class="pi pi-eye" style="color: #F0F0F0;font-size:1.2rem;"></i>
+              </ng-template>
           </p-card>
         </div>
       </div>
-    </div>
+
   <div class="flex">
     <app-chart-bar class="chart" [stats]="statsResources.value()"/>
     <app-chart-line class="chart" [stats]="statsResources.value()"/>
