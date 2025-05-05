@@ -9,7 +9,6 @@ import { DatePipe } from '@angular/common';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 import { ButtonModule } from 'primeng/button';
 import { Photo } from '../../models/photo.model';
-import {StaticsService} from '../../../dashboards/services/statics.service';
 @Component({
   selector: 'app-photo-details',
   imports: [ImageModule, LoadingSpinnerComponent, DatePipe, ButtonModule, OverlayBadgeModule],
@@ -26,7 +25,7 @@ export class PhotoDetailsComponent implements OnInit {
   photoService: PhotosService = inject(PhotosService);
   client_id:string = environment.clientId;
 
-  statsService : StaticsService = inject(StaticsService);
+   
 
   ngOnInit(): void {
     this.photoId = this.route.snapshot.paramMap.get('id')!;

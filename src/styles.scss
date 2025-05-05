@@ -1,2 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+.card-chart{
+  max-width: 700px;
+  min-width: 200px;
+  max-height: 400px;
+}
+
+.has-text-centered{
+  text-align: center;
+}
+
+
+.is-blue{
+  background-color: #4A90E2;
+  color:#F0F0F0;
+}
+.is-pink{
+  background-color: #E26A8D;
+  color:#F0F0F0;
+}
+.is-orange{
+  background-color: #F5A623;
+  color:#F0F0F0;
+}
+.is-greenlight{
+  background-color: #50E3C2;
+  color: #F0F0F0;
+}
+
+@media (max-width:900px){
+  .card-chart{
+    max-height: 498px;
+    max-width: 500px;
+    min-width: 130px;
+  }
+}
+
+
+

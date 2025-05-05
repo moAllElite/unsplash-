@@ -1,0 +1,27 @@
+@if (statsResources.value()) {
+    <div style="display: flex;">
+      <div class="mb-4 p-8 card has-text-centered">
+        <p-card header="Total de téléchargements" class="is-pink">
+            <h2 class="m-0">
+              {{ statsResources.value()?.downloads?.total }}
+            </h2>
+        </p-card>
+
+        <div class=" mb-4 p-8 card has-text-centered ">
+          <p-card header="Total de vues" class="is-blue">
+              <h2 class="m-0">
+                {{ statsResources.value()?.views?.total }}
+              </h2>
+          </p-card>
+        </div>
+      </div>
+    </div>
+  <div class="flex">
+    <app-chart-bar class="chart" [stats]="statsResources.value()"/>
+    <app-chart-line class="chart" [stats]="statsResources.value()"/>
+  </div>
+
+}@else if(statsResources.isLoading()) {
+  <app-loading-spinner [strokeWidth]="'10'"
+   [animationDuration]="'0.9s'" />
+}
