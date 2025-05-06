@@ -1,24 +1,32 @@
 @if (statsResources.value()) {
   <div class="container">
-  <div class="mb-4 p-8 card has-text-centered" >
-        <p-card header="Total de téléchargements" [style]="{backgroundColor:'#4A90E2',color:'#F0F0F0' }">
+  <div class="mb-4 p-8 container has-text-centered" >
+      <!--total dowanloads -->
+        <p-card header="Total de téléchargements"  [style]="{backgroundColor:'#4A90E2',color:'#F0F0F0' }">
             <h1 class="m-0">
+              <i class="pi pi-download" style="color: #F0F0F0;font-size:1.2rem;"></i>
               {{ statsResources.value()?.downloads?.total }}
             </h1>
-            <ng-template #footer>
-              <i class="pi pi-download" style="color: #F0F0F0;font-size:1.2rem;"></i>
-            </ng-template>
-        </p-card>
-        </div>
-        <div class=" mb-4 p-8 card has-text-centered " >
+          </p-card>
+          <!--total views-->
           <p-card header="Total de vues" [style]="{backgroundColor:'#F5A623',color:'#F0F0F0' }" >
               <h1 class="m-0">
-                {{ statsResources.value()?.views?.total }}
-              </h1>
-              <ng-template #footer>
                 <i class="pi pi-eye" style="color: #F0F0F0;font-size:1.2rem;"></i>
-              </ng-template>
+                 {{ statsResources.value()?.views?.total }}
+              </h1>
+
           </p-card>
+           <!-- resolutions jour-->
+           <p-card header="Résolution" [style]="{backgroundColor:'#9C6ADE',color:'#F0F0F0' }" >
+            <h1 class="m-0">
+              <i class="pi pi-eye" style="color: #F0F0F0;font-size:1.2rem;"></i>
+              {{ statsResources.value()?.downloads?.historical?.quantity }}
+              @if (statsResources.value()?.downloads?.historical?.resolution == 'days'  ) {
+                jours
+              }@else {mois}
+            </h1>
+
+        </p-card>
         </div>
       </div>
 

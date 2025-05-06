@@ -2,14 +2,19 @@
   display: flex;
   gap: 3rem;
 }
-.card{
+.container{
+  align-items: center;
+  display: flex;
+  gap: 5rem;
+}
+p-card{
   max-width: 300px;
-  margin: 20px 0 20px 0;
+  margin: 20px 10px 20px 10px;
+  min-width: 247.9px;
 }
 
-.container{
-  display: block;
-}
+
+
 
 .chart{
   width: 100%;
